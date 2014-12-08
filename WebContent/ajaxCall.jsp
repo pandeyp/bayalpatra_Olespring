@@ -1,0 +1,1 @@
+<%String username = (String) session.getAttribute("fullname");%><%if (username==null){ %>noSession<%}else{%>hasSession<%}%>

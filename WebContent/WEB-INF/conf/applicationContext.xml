@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<bean id="handlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+	<!-- Default ViewResolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/users/home.html">userController</prop>
+				<prop key="/users/editUser.html">userController</prop>
+				<prop key="/login.html">userController</prop>
+				<prop key="/users/deleteUsers.html">userController</prop>
+				<prop key="/users/userList.html">userController</prop>
+
+				<prop key="/designation/listDesignation.html">designationController</prop>
+				<prop key="/designation/editDesignation.html">designationController</prop>
+				<prop key="/designation/deleteDesignation.html">designationController</prop>
+
+				<prop key="/department/listDepartment.html">departmentController</prop>
+				<prop key="/department/editDepartment.html">departmentController</prop>
+				<prop key="/department/deleteDepartment.html">departmentController</prop>
+
+				<prop key="/employee/listEmployee.html">employeeController</prop>
+				<prop key="/employee/editEmployee.html">employeeController</prop>
+				<prop key="/employee/deleteEmployee.html">employeeController</prop>
+				<prop key="/employee/terminatedEmployeeList.html">employeeController</prop>
+				<prop key="/salary/salaryReport.html">employeeController</prop>
+
+				<prop key="/salary/listSalary.html">salaryController</prop>
+				<prop key="/salary/editSalary.html">salaryController</prop>
+				<prop key="/salary/deleteSalary.html">salaryController</prop>
+
+				<prop key="/leave/listLeave.html">leaveController</prop>
+				<prop key="/leave/deleteLeave.html">leaveController</prop>
+				<prop key="/leave/approveLeave.html">leaveController</prop>
+				<prop key="/leave/approvedLeaveList.html">leaveController</prop>
+				<prop key="/leave/denyLeave.html">leaveController</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="userControllerResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/users/home.html">homeHandler</prop>
+				<prop key="/users/deleteUsers.html">deleteUsers</prop>
+				<prop key="/users/userList.html">usersView</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="userController" class="com.lbef.controller.UserController">
+		<property name="methodNameResolver" ref="userControllerResolver" />
+		<property name="userService" ref="userService" />
+	</bean>
+
+	<bean name="/users/addUser.html" class="com.lbef.controller.AddUserForm">
+		<property name="formView" value="users/userForm" />
+		<property name="commandName" value="user" />
+		<property name="commandClass" value="com.lbef.domain.User" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean name="/users/editUser.html" class="com.lbef.controller.EditUserForm">
+		<property name="formView" value="users/editUser" />
+		<property name="commandName" value="user" />
+		<property name="commandClass" value="com.lbef.domain.User" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<!-- User Controller ends here! -->
+
+	<bean id="designationControllerResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/designation/listDesignation.html">listDesignation</prop>
+				<prop key="/designation/deleteDesignation.html">deleteDesignation</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="designationController" class="com.lbef.controller.DesignationController">
+		<property name="methodNameResolver" ref="designationControllerResolver" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+
+	<bean name="/designation/addDesignation.html" class="com.lbef.controller.AddDesignationForm">
+		<property name="formView" value="designation/addDesignation" />
+		<property name="commandName" value="designation" />
+		<property name="commandClass" value="com.lbef.domain.Designation" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+	<bean name="/designation/editDesignation.html" class="com.lbef.controller.EditDesignationForm">
+		<property name="formView" value="designation/editDesignation" />
+		<property name="commandName" value="designation" />
+		<property name="commandClass" value="com.lbef.domain.Designation" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+	<!-- Designation Controller ends here! -->
+
+	<bean id="departmentControllerResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/department/listDepartment.html">listDepartment</prop>
+				<prop key="/department/deleteDepartment.html">deleteDepartment</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="departmentController" class="com.lbef.controller.DepartmentController">
+		<property name="methodNameResolver" ref="departmentControllerResolver" />
+		<property name="departmentService" ref="departmentService" />
+	</bean>
+
+	<bean name="/department/addDepartment.html" class="com.lbef.controller.AddDepartmentForm">
+		<property name="formView" value="department/addDepartment" />
+		<property name="commandName" value="department" />
+		<property name="commandClass" value="com.lbef.domain.Department" />
+		<property name="departmentService" ref="departmentService" />
+	</bean>
+
+	<bean name="/department/editDepartment.html" class="com.lbef.controller.EditDepartmentForm">
+		<property name="formView" value="department/editDepartment" />
+		<property name="commandName" value="department" />
+		<property name="commandClass" value="com.lbef.domain.Department" />
+		<property name="departmentService" ref="departmentService" />
+	</bean>
+
+
+	<!-- Department Controller ends here -->
+
+
+	<bean id="employeeControllerResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/employee/listEmployee.html">listEmployee</prop>
+				<prop key="/employee/deleteEmployee.html">deleteEmployee</prop>
+				<prop key="/employee/terminatedEmployeeList.html">termedEmployee</prop>
+				<prop key="/salary/salaryReport.html">salaryReport</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="employeeController" class="com.lbef.controller.EmployeeController">
+		<property name="methodNameResolver" ref="employeeControllerResolver" />
+		<property name="employeeService" ref="employeeService" />
+		<property name="departmentService" ref="departmentService" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+
+	<bean name="/employee/addEmployee.html" class="com.lbef.controller.AddEmployeeForm">
+		<property name="formView" value="employee/addEmployee" />
+		<property name="commandName" value="employee" />
+		<property name="commandClass" value="com.lbef.domain.Employee" />
+		<property name="employeeService" ref="employeeService" />
+		<property name="departmentService" ref="departmentService" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+	<bean name="/employee/editEmployee.html" class="com.lbef.controller.EditEmployeeForm">
+		<property name="formView" value="employee/editEmployee" />
+		<property name="commandName" value="employee" />
+		<property name="commandClass" value="com.lbef.domain.Employee" />
+		<property name="employeeService" ref="employeeService" />
+		<property name="departmentService" ref="departmentService" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+
+             <!-- Employee Controller ends here -->
+    
+	<bean id="salaryControllerResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/salary/listSalary.html">listSalary</prop>
+				<prop key="/salary/deleteSalary.html">deleteSalary</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="salaryController" class="com.lbef.controller.SalaryController">
+		<property name="methodNameResolver" ref="salaryControllerResolver" />
+		<property name="salaryService" ref="salaryService" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+
+	<bean name="/salary/addSalary.html" class="com.lbef.controller.AddSalaryForm">
+		<property name="formView" value="salary/addSalary" />
+		<property name="commandName" value="salary" />
+		<property name="commandClass" value="com.lbef.domain.Salary" />
+		<property name="salaryService" ref="salaryService" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+
+	<bean name="/salary/editSalary.html" class="com.lbef.controller.EditSalaryForm">
+		<property name="formView" value="salary/editSalary" />
+		<property name="commandName" value="salary" />
+		<property name="commandClass" value="com.lbef.domain.Salary" />
+		<property name="salaryService" ref="salaryService" />
+		<property name="designationService" ref="designationService" />
+	</bean>
+
+
+	<!-- Salary Controller ends here -->
+    
+    
+	<bean id="leaveControllerResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/leave/listLeave.html">listLeave</prop>
+				<prop key="/leave/deleteLeave.html">deleteLeave</prop>
+				<prop key="/leave/approveLeave.html">updateLeaveStatus</prop>
+				<prop key="/leave/approvedLeaveList.html">approveLeaveList</prop>
+				<prop key="/leave/denyLeave.html">denyLeave</prop>				
+			</props>
+		</property>
+	</bean>
+
+	<bean id="leaveController" class="com.lbef.controller.LeaveController">
+		<property name="methodNameResolver" ref="leaveControllerResolver" />
+		<property name="leaveService" ref="leaveService" />
+		<property name="employeeService" ref="employeeService" />
+	</bean>
+
+	<bean name="/leave/addLeave.html" class="com.lbef.controller.AddLeaveForm">
+		<property name="formView" value="leave/addLeave" />
+		<property name="commandName" value="leave" />
+		<property name="commandClass" value="com.lbef.domain.Leave" />
+		<property name="leaveService" ref="leaveService" />
+		<property name="employeeService" ref="employeeService" />
+	</bean>
+
+	<bean name="/leave/editLeave.html" class="com.lbef.controller.EditLeaveForm">
+		<property name="formView" value="leave/editLeave" />
+		<property name="commandName" value="leave" />
+		<property name="commandClass" value="com.lbef.domain.Leave" />
+		<property name="leaveService" ref="leaveService" />
+		<property name="employeeService" ref="employeeService" />
+	</bean>
+
+
+	<!-- Leave Controller ends here -->
+    
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

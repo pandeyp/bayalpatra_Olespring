@@ -1,0 +1,574 @@
+@charset "utf-8";
+/* CSS Document */
+a {
+	color: #648400;
+}
+
+body {
+	background: #e2e2e2;
+	color: #000000;
+	font-family: Arial, Verdana, Tahoma, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+#Wrapper {
+	margin: 0 auto;
+	padding: 0;
+	width: 1024px;
+	background: #fff;
+}
+
+#Header {
+	margin: 0;
+	padding: 0;
+	height: 35px;
+	background: #515151;
+}
+
+#Header .leftHeader {
+	margin: 0;
+	padding: 15px;
+	float: left;
+	width: 500px;
+}
+
+#Header .rightHeader {
+	margin: 0;
+	padding: 8px;
+	float: right;
+	color: #fff;
+}
+
+#Header .rightHeader a {
+	color: #fff;
+}
+
+#Header .rightHeader a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+#Banner {
+	margin: 0;
+	padding: 0 0 0 15px;
+	height: 150px;
+	background: #8EAF16;
+	/*background: #F00;
+	 background: url(../img/banner.jpg) #688315 no-repeat; */
+}
+
+#Nav {
+	margin: 0;
+	padding: 0;
+	background: #932C00;
+	height: 35px;
+}
+
+#Nav ul {
+	margin: 0;
+	padding: 0;
+	height: 0px;
+}
+
+#Nav ul li {
+	margin: 0;
+	list-style: none;
+	line-height: 35px;
+	float: left;
+	border-right: 1px solid #fff;
+	position: relative;
+}
+
+#Nav ul li:last-child {
+	border: none;
+}
+
+#Nav ul li a {
+	text-decoration: black;
+	color: #fff;
+	display: block;
+	padding: 0 35px;
+}
+
+#Nav ul li a:hover {
+	color: #cb3d00;
+	background: #9abe1c;
+	display: block;
+	padding: 0 35px;
+}
+
+#Nav ul ul {
+	position: absolute;
+	left: 0;
+	top: 35px;
+	background: #932C00;
+	display: block;
+	height: 50px;
+}
+
+#Nav ul li ul li {
+	display: block !important;
+	width: auto;
+	float: none;
+	hiight: 25px;
+	line-height: 25px;
+	border: none;
+	white-space: nowrap;
+}
+
+#Nav ul li ul {
+	display: none;
+}
+
+#Nav ul li:hover ul {
+	display: block;
+}
+
+.clear {
+	clear: both;
+}
+
+#mainContainer {
+	margin: 0;
+	padding: 15px;
+	width: 994px;
+	background: #fff;
+	min-height: 250px;
+}
+
+.leftContent {
+	margin: 0;
+	padding: 15px;
+	float: left;
+	width: 244px;
+}
+
+.leftContent #menu {
+	margin: 0;
+	padding: 0;
+}
+
+.leftContent #menu li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 25px;
+}
+
+.leftContent #menu li a {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: #FFFFFF;
+	text-decoration: none
+}
+
+.leftContent #menu li a:hover {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: #90F;
+}
+
+.rightContent {
+	margin: 0;
+	padding: 15px;
+	float: right;
+	width: 670px;
+}
+/* #footer								{ margin:0; padding:0; } */
+/*........a87979.............footer.....833b23 for outer rim......*/
+.footer {
+	background: #932c00;
+	line-height: 37px;
+	color: #fff;
+	height: 37px;
+}
+
+.footer_content {
+	width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+}
+
+/* .right_box {
+height:10px;     d2ece9    a7c3c4
+background:#eee;
+float:left;
+} */
+.right_box {
+	float: left;
+	width: 288px;
+	background: #80afe8;
+	margin: 30px 0 0 300px;
+	height: 168px;
+	padding: 10px;
+	border: 1px solid #b0532b;
+}
+
+#login_container {
+	margin: 0 auto;
+	background: #FFF url(../img/bg_gray.gif) repeat-x top;
+	overflow: hidden;
+	padding: 50px 50px;
+	width: auto;
+	border: 1px solid #d6d6d6;
+}
+
+#login_container_new {
+	margin: 0 auto;
+	background: #000 url(../img/bg_gray.gif) repeat-x top;
+	overflow: hidden;
+	border: 1px solid #d6d6d6;
+	padding: 4px 0;
+}
+
+#login_container_new h2 {
+	color: #1E69A6;
+	font: 18px Verdana, Geneva, sans-serif;
+	background: url(../img/login-key.gif) no-repeat 0px 0px;
+	padding: 6px 0 0px 40px;
+	font-weight: bold;
+}
+
+#right_box h2 {
+	color: #1E69A6;
+	font: 18px Verdana, Geneva, sans-serif;
+	background: url(../img/login-key.gif) no-repeat 0px 0px;
+	padding: 6px 0 0px 40px;
+	font-weight: bold;
+}
+
+.login_info {
+	font: normal 13px Segoe Print, Geneva, sans-serif;
+	color: #3133;
+	margin: 0;
+	background: #cbb483;
+	padding: 10px;
+	width: 268px;
+}
+
+.login_info h2 {
+	background: url(../img/login-key.gif) no-repeat 0px 0px;
+}
+
+.login_info ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.login_info ul li {
+	margin: 2px 0;
+	padding: 2px 0;
+	height: 24px;
+}
+
+.login_info ul li span {
+	float: left;
+	width: 68px;
+}
+
+.login_info ul li input[type="submit"] {
+	float: left;
+	width: 50px !important;
+	border: 1px solid #fff;
+	margin: 0 0 0 10px;
+}
+
+.login_info ul li input {
+	float: right;
+	width: 180px;
+}
+
+.clearboth {
+	clear: both;
+}
+
+/*................Table..............*/
+.datatable { /*background-color:#FABA22;*/
+	border-collapse: collapse;
+}
+
+tr.rowtitle td {
+	background: #999;
+	font-weight: bold;
+	color: #FFF;
+	border: 1px solid #fff;
+	/*	padding:5px;*/
+}
+
+tr.rowtitlesub td {
+	background: #E0E0E0;
+	/*padding:5px;*/
+}
+
+tr.row td {
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+}
+
+/* TABLES
+------------------------------------------------------------------------- */
+.gtable {
+	width: 100%;
+}
+
+.innertable {
+	width: 48%;
+	float: left;
+}
+
+.innertable .inputs {
+	border: 1px solid #aed7fb;
+}
+
+.gtable th {
+	text-align: left;
+	padding: 5px 3px;
+	color: #fff;
+}
+
+.gtable thead tr {
+	color: #333;
+	border: 1px solid #ccc;
+}
+
+.gtable thead th {
+	background: #056195 url(../images/table_th_bg2.jpg) top left repeat-x;
+	border-left: 1px solid #ccc;
+	color: #FFF;
+}
+
+.gtable tbody tr td {
+	border-bottom: 1px solid #eee;
+}
+
+.gtable tbody tr:nth-child(odd) td,.detailtable tbody tr.odd td {
+	background-color: #fff;
+}
+
+.gtable tbody tr:nth-child(even) td,.detailtable tbody tr.even td {
+	background-color: #f7f7f7;
+}
+
+.gtable tbody tr:hover td {
+	background-color: #d3e4ee;
+	cursor: pointer;
+}
+
+.gtable td {
+	padding: 5px 10px;
+}
+
+.gtable .detail table tr td,.gtable .detail table tr th {
+	background: #ffffed;
+	border-bottom: 1px solid #fff7d1;
+}
+
+/*for table*/
+.list {
+	width: 100%;
+}
+
+.innertable {
+	width: 48%;
+	float: left;
+}
+
+.innertable .inputs {
+	border: 1px solid #aed7fb;
+}
+
+.list th {
+	text-align: left;
+	padding: 5px 10px;
+}
+
+.list thead tr {
+	color: #333;
+	border: 1px solid #ccc;
+}
+
+.list thead th {
+	background: #056195 url(../images/table_th_bg2.jpg) top left repeat-x;
+	border: 1px solid #ccc;
+	color: #FFF;
+}
+
+.list tbody tr td {
+	border-bottom: 1px solid #eee;
+}
+
+.list tbody tr:nth-child(odd) td,.detailtable tbody tr.odd td {
+	background-color: #fff;
+}
+
+.list tbody tr:nth-child(even) td,.detailtable tbody tr.even td {
+	background-color: #f7f7f7;
+}
+
+.list tbody tr:hover td {
+	background-color: #d3e4ee;
+	cursor: pointer;
+}
+
+.list td {
+	padding: 5px 10px;
+}
+
+.list .detail table tr td,.list .detail table tr th {
+	background: #ffffed;
+	border-bottom: 1px solid #fff7d1;
+}
+
+/*for random*/
+h4 {
+	font: bold 15px Arial, Helvetica, sans-serif;
+	color: #000000;
+	padding: 3px;
+	border-bottom: 2px solid #035c8e;
+	margin: 0 0 10px 0;
+}
+
+.dialog {
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+.title {
+	text-align: left;
+	width: 15%;
+	white-space: nowrap;
+}
+
+.box {
+	background-color: #FA3;
+}
+
+.emplist {
+	width: 70%;
+	border: thick, solid;
+	background-color: #FA3;
+}
+
+.button {
+	border-top: 1px solid #999999;
+	display: block;
+	float: center;
+	height: auto;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 15px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	align: center;
+	width: auto;
+}
+
+/* TABLES
+------------------------------------------------------------------------- */
+/* .gtable {
+	width: 100%;
+} */
+.innertable {
+	width: 48%;
+	float: left;
+}
+
+.innertable .inputs {
+	border: 1px solid #aed7fb;
+}
+
+.gtable th {
+	text-align: left;
+	padding: 5px 3px;
+	background: #8eaf16;
+}
+
+.gtable thead tr {
+	color: #333;
+	border: 1px solid #ccc;
+}
+
+.gtable thead th {
+	background: #056195 url(../images/table_th_bg2.jpg) top left repeat-x;
+	border-left: 1px solid #ccc;
+	color: #FFF;
+}
+
+.gtable tbody tr td {
+	border-bottom: 1px solid #eee;
+}
+
+.gtable tbody tr:nth-child(odd) td,.detailtable tbody tr.odd td {
+	background-color: #e1e1e1;
+}
+
+.gtable tbody tr:nth-child(even) td,.detailtable tbody tr.even td {
+	background-color: #ececea;
+}
+
+.gtable tbody tr:hover td {
+	background-color: #d3e4ee;
+	cursor: pointer;
+}
+
+.gtable td {
+	padding: 5px 10px;
+}
+
+.gtable .detail table tr td,.gtable .detail table tr th {
+	background: #ffffed;
+	border-bottom: 1px solid #fff7d1;
+}
+
+#appLeave {
+	float: right;
+}
+
+.savebutton{
+	background: none repeat scroll 0 0 #CCCCCC;
+	border: 1px solid #999999 !important;
+	curosr: pointer;
+	margin: 0 10px 0 0 !important;
+	
+
+
+
+}
+
+#homebox{
+	width:1000px;
+	height:250px;
+	border:1px solid #000;
+}
+
+
+#homeleftbox{
+	float:left;
+	width:350px;
+	height:250px;
+	border:1px solid #000;
+	font-weight: bolder;
+	font-size: 25px;
+	line-height: 30px;
+	font-family: cursive;
+	color: #932C00;
+	background-color: #6a8410;
+}
+
+#homerightbox{
+	float:right;
+	width:600px;
+	height:250px;
+	padding: 0 0 
+	
+}
+
+#formbuttons{
+	margin:0 0 0 450px;
+	}

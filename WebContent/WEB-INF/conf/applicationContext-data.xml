@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+  http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-2.5.xsd
+  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	xmlns:aop="http://www.springframework.org/schema/aop">
+
+	<context:property-placeholder location="/application.properties" />
+
+	<!-- Database Connection -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="10" />
+	</bean>
+
+	<bean id="userDao" class="com.lbef.daoimpl.UserDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="employeeService" ref="employeeService"></property>
+	</bean>
+
+	<bean id="userService" class="com.lbef.serviceimpl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+
+	<bean id="designationService" class="com.lbef.serviceimpl.DesignationServiceImpl">
+		<property name="designationDao" ref="designationDao"></property>
+	</bean>
+
+	<bean id="designationDao" class="com.lbef.daoimpl.DesignationDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="departmentService" class="com.lbef.serviceimpl.DepartmentServiceImpl">
+		<property name="departmentDao" ref="departmentDao"></property>
+	</bean>
+
+	<bean id="departmentDao" class="com.lbef.daoimpl.DepartmentDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="employeeService" class="com.lbef.serviceimpl.EmployeeServiceImpl">
+		<property name="employeeDao" ref="employeeDao"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+
+	<bean id="employeeDao" class="com.lbef.daoimpl.EmployeeDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="designationService" ref="designationService"></property>
+		<property name="departmentService" ref="departmentService"></property>
+	</bean>
+
+	<bean id="salaryService" class="com.lbef.serviceimpl.SalaryServiceImpl">
+		<property name="salaryDao" ref="salaryDao"></property>
+	</bean>
+
+	<bean id="salaryDao" class="com.lbef.daoimpl.SalaryDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="designationService" ref="designationService"></property>
+	</bean>
+	
+	<bean id="leaveService" class="com.lbef.serviceimpl.LeaveServiceImpl">
+		<property name="leaveDao" ref="leaveDao"></property>
+	</bean>
+
+	<bean id="leaveDao" class="com.lbef.daoimpl.LeaveDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="employeeService" ref="employeeService"></property>
+	</bean>
+	
+	
+
+</beans>	
